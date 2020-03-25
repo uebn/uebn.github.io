@@ -179,6 +179,9 @@
                         <th scope="row">Email</th>\
                         <td>' + (feature.properties['Email'] !== null ? Autolinker.link(feature.properties['Email'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
                     </tr>\
+                        <th scope="row">Website</th>\
+                        <td>' + (feature.properties['Email'] !== null ? Autolinker.link(feature.properties['Website'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                    </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
