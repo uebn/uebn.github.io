@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
     <head>
-            <!-- Global site tag (gtag.js) - Google Analytics -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-161409738-1"></script>
         <script>
              window.dataLayer = window.dataLayer || [];
@@ -19,6 +19,7 @@
         <link rel="stylesheet" href="css/MarkerCluster.css">
         <link rel="stylesheet" href="css/MarkerCluster.Default.css">
         <link rel="stylesheet" href="css/leaflet-search.css">
+        <link rel="stylesheet" href="css/leaflet-control-geocoder.Geocoder.css">
         <style>
         html, body, #map {
             width: 100%;
@@ -41,6 +42,7 @@
         <script src="js/rbush.min.js"></script>
         <script src="js/labelgun.min.js"></script>
         <script src="js/labels.js"></script>
+        <script src="js/leaflet-control-geocoder.Geocoder.js"></script>
         <script src="js/leaflet.markercluster.js"></script>
         <script src="js/leaflet-search.js"></script>
         <script src="data/fregEvora_1.js"></script>
@@ -254,6 +256,16 @@
                     this._div.innerHTML = '<p><a href="http://www.facebook.com/blocodenotas" target="_blank" rel="noopener">fb</a>  <a href="http://www.twitter.com/uedbn" target="_blank" rel="noopener">tw</a>  <a href="mailto:ueblocodenotas@gmail.com" target="_blank" rel="noopener">Email</a></p>';
             };
             abstract.addTo(map);
+        var osmGeocoder = new L.Control.Geocoder({
+            collapsed: true,
+            position: 'topleft',
+            text: 'Search',
+            title: 'Testing'
+        }).addTo(map);
+        document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
+        .className += ' fa fa-search';
+        document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
+        .title += 'Search for a place';
         setBounds();
         map.addControl(new L.Control.Search({
             layer: cluster_restaurantesERV_2,

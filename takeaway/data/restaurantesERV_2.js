@@ -33,6 +33,7 @@ var json_restaurantesERV_2 = {
 { "type": "Feature", "properties": { "Restaurant": "Telepizza Évora", "Telefone": "266 781 086", "Telemóvel": null, "Email": null, "Website": "telepizza.pt" }, "geometry": { "type": "Point", "coordinates": [ -7.913761, 38.573133 ] } },
 { "type": "Feature", "properties": { "Restaurant": "McDonald's", "Telefone": "266 758 496", "Telemóvel": null, "Email": null, "Website": "mcdonalds.pt" }, "geometry": { "type": "Point", "coordinates": [ -7.925995, 38.56224 ] } },
 { "type": "Feature", "properties": { "Restaurant": "Restaurante \"O Cozinheiro\"", "Telefone": "266 761 426", "Telemóvel": null, "Email": null, "Website": null }, "geometry": { "type": "Point", "coordinates": [ -7.906583, 38.610897 ] } },
-{ "type": "Feature", "properties": { "Restaurant": "Pizzeria L'Italiano", "Telefone": "266 706 230", "Telemóvel": null, "Email": null, "Website": null }, "geometry": { "type": "Point", "coordinates": [ -7.912544, 38.569608 ] } }
+{ "type": "Feature", "properties": { "Restaurant": "Pizzeria L'Italiano", "Telefone": "266 706 230", "Telemóvel": null, "Email": null, "Website": null }, "geometry": { "type": "Point", "coordinates": [ -7.912544, 38.569608 ] } },
+{ "type": "Feature", "properties": { "Restaurant": "O Rijo", "Telefone": "266 700 037", "Telemóvel": null, "Email": null, "Website": null }, "geometry": { "type": "Point", "coordinates": [ -7.903719, 38.584519 ] } }
 ]
 }
