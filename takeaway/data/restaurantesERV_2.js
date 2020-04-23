@@ -47,6 +47,7 @@ var json_restaurantesERV_2 = {
 { "type": "Feature", "properties": { "Restaurant": "A Gruta", "Telefone": "266 708 186", "Telemóvel": null, "Email": null, "Website": null, "Entrega Do": null }, "geometry": { "type": "Point", "coordinates": [ -7.909604, 38.566519 ] } },
 { "type": "Feature", "properties": { "Restaurant": "O Toninho", "Telefone": "266 761 375", "Telemóvel": null, "Email": null, "Website": null, "Entrega Do": null }, "geometry": { "type": "Point", "coordinates": [ -7.910128, 38.612737 ] } },
 { "type": "Feature", "properties": { "Restaurant": "MaxiPizza", "Telefone": null, "Telemóvel": "965 638 331", "Email": null, "Website": null, "Entrega Do": "Sim" }, "geometry": { "type": "Point", "coordinates": [ -7.904949, 38.570303 ] } },
-{ "type": "Feature", "properties": { "Restaurant": "Cafetaria Bica Bicas", "Telefone": "266 092 926", "Telemóvel": null, "Email": null, "Website": null, "Entrega Do": null }, "geometry": { "type": "Point", "coordinates": [ -7.920018, 38.573151 ] } }
+{ "type": "Feature", "properties": { "Restaurant": "Cafetaria Bica Bicas", "Telefone": "266 092 926", "Telemóvel": null, "Email": null, "Website": null, "Entrega Do": null }, "geometry": { "type": "Point", "coordinates": [ -7.920018, 38.573151 ] } },
+{ "type": "Feature", "properties": { "Restaurant": "Tasquinha do Bairro", "Telefone": null, "Telemóvel": "965 428 367", "Email": null, "Website": null, "Entrega Do": null }, "geometry": { "type": "Point", "coordinates": [ -7.907424, 38.593593 ] } }
 ]
 }

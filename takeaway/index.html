@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
     <head>
-     <!-- Global site tag (gtag.js) - Google Analytics -->
+        <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-161409738-1"></script>
         <script>
              window.dataLayer = window.dataLayer || [];
@@ -19,7 +19,6 @@
         <link rel="stylesheet" href="css/MarkerCluster.css">
         <link rel="stylesheet" href="css/MarkerCluster.Default.css">
         <link rel="stylesheet" href="css/leaflet-search.css">
-        <link rel="stylesheet" href="css/leaflet-control-geocoder.Geocoder.css">
         <style>
         html, body, #map {
             width: 100%;
@@ -42,7 +41,6 @@
         <script src="js/rbush.min.js"></script>
         <script src="js/labelgun.min.js"></script>
         <script src="js/labels.js"></script>
-        <script src="js/leaflet-control-geocoder.Geocoder.js"></script>
         <script src="js/leaflet.markercluster.js"></script>
         <script src="js/leaflet-search.js"></script>
         <script src="data/fregEvora_1.js"></script>
@@ -69,6 +67,7 @@
         })
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
+        var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
         L.control.locate({locateOptions: {maxZoom: 19}}).addTo(map);
         var bounds_group = new L.featureGroup([]);
         function setBounds() {
@@ -76,7 +75,10 @@
                 map.fitBounds(bounds_group.getBounds());
             }
         }
+        map.createPane('pane_OSMStandard_0');
+        map.getPane('pane_OSMStandard_0').style.zIndex = 400;
         var layer_OSMStandard_0 = L.tileLayer('http://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            pane: 'pane_OSMStandard_0',
             opacity: 1.0,
             attribution: '<a href="https://www.openstreetmap.org/copyright">© OpenStreetMap contributors, CC-BY-SA</a>',
             minZoom: 1,
@@ -104,19 +106,19 @@
             });
             var popupContent = '<table>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['gid'] !== null ? Autolinker.link(feature.properties['gid'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['gid'] !== null ? autolinker.link(feature.properties['gid'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['dicofre'] !== null ? Autolinker.link(feature.properties['dicofre'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['dicofre'] !== null ? autolinker.link(feature.properties['dicofre'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['freguesia'] !== null ? Autolinker.link(feature.properties['freguesia'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['freguesia'] !== null ? autolinker.link(feature.properties['freguesia'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['concelho'] !== null ? Autolinker.link(feature.properties['concelho'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['concelho'] !== null ? autolinker.link(feature.properties['concelho'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['distrito'] !== null ? Autolinker.link(feature.properties['distrito'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['distrito'] !== null ? autolinker.link(feature.properties['distrito'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
@@ -130,7 +132,7 @@
                 dashArray: '',
                 lineCap: 'butt',
                 lineJoin: 'miter',
-                weight: 2.0, 
+                weight: 2.0,
                 fillOpacity: 0,
                 interactive: false,
             }
@@ -167,27 +169,27 @@
             });
             var popupContent = '<table>\
                     <tr>\
-                        <td colspan="2"><strong>Restaurante</strong><br />' + (feature.properties['Restaurant'] !== null ? Autolinker.link(feature.properties['Restaurant'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                        <td colspan="2"><strong>Restaurante</strong><br />' + (feature.properties['Restaurant'] !== null ? autolinker.link(feature.properties['Restaurant'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Telefone</th>\
-                        <td>' + (feature.properties['Telefone'] !== null ? Autolinker.link(feature.properties['Telefone'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                        <td>' + (feature.properties['Telefone'] !== null ? autolinker.link(feature.properties['Telefone'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Telemóvel</th>\
-                        <td>' + (feature.properties['Telemóvel'] !== null ? Autolinker.link(feature.properties['Telemóvel'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                        <td>' + (feature.properties['Telemóvel'] !== null ? autolinker.link(feature.properties['Telemóvel'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Email</th>\
-                        <td>' + (feature.properties['Email'] !== null ? Autolinker.link(feature.properties['Email'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                        <td>' + (feature.properties['Email'] !== null ? autolinker.link(feature.properties['Email'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Website</th>\
-                        <td>' + (feature.properties['Website'] !== null ? Autolinker.link(feature.properties['Website'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                        <td>' + (feature.properties['Website'] !== null ? autolinker.link(feature.properties['Website'].toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Domicilio</th>\
-                        <td>' + (feature.properties['Entrega Do'] !== null ? Autolinker.link(feature.properties['Entrega Do'].toLocaleString(), {truncate: {length: 30, location: 'smart'}}) : '') + '</td>\
+                        <td>' + (feature.properties['Entrega Do'] !== null ? autolinker.link(feature.properties['Entrega Do'].toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             layer.bindPopup(popupContent, {maxHeight: 400});
@@ -260,16 +262,6 @@
                     this._div.innerHTML = '<p><a href="http://www.facebook.com/blocodenotas" target="_blank" rel="noopener">fb</a>  <a href="http://www.twitter.com/uedbn" target="_blank" rel="noopener">tw</a>  <a href="mailto:ueblocodenotas@gmail.com" target="_blank" rel="noopener">Email</a></p>';
             };
             abstract.addTo(map);
-        var osmGeocoder = new L.Control.Geocoder({
-            collapsed: true,
-            position: 'topleft',
-            text: 'Search',
-            title: 'Testing'
-        }).addTo(map);
-        document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
-        .className += ' fa fa-search';
-        document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
-        .title += 'Search for a place';
         setBounds();
         map.addControl(new L.Control.Search({
             layer: cluster_restaurantesERV_2,
